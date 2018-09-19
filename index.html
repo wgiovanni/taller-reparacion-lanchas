@@ -7,23 +7,97 @@
 <body>
 	<div>
 		<header><h1>Taller de Reparación / Mantenimiento de Lanchas</h1></header>
+		<h2>Crear Factura</h2>
 		<div>
 			<form>
-				<label>Fecha: </label>
-				<input type="text" name="fecha-cliente" value="12/08/2018">
-				<label>Cédula: </label>
-				<input type="text" name="ci-cliente" placeholder="Ingrese la Cédula">
-				<label>Nombre del Cliente: </label>
-				<input type="text" name="nombre-cliente" placeholder="Ingrese el nombre">
-				<label>Apellido del Cliente: </label>
-				<input type="text" name="apellido-cliente" placeholder="Ingrese el apellido">
-				<br/>
-				<label>Dirección: </label>
-				<input type="text" name="dir-cliente" placeholder="Ingrese la Dirección">
-				<label>Tef: </label>
-				<input type="text" name="tlf-cliente" placeholder="Ingrese el Teléfono">
-				<label>Email: </label>
-				<input type="text" name="email-cliente" placeholder="Ingrese el Email">
+				<div>
+					<label>Fecha: </label>
+					<input type="text" name="fecha-cliente" value="12/08/2018">
+					<label>Forma de pago</label>
+					<select>
+						<option disabled="disabled" value=""  selected="true">Selecionar</option>
+						<option value="debito">Debito</option>
+						<option value="cheque">Cheque</option>
+					</select>
+				</div>
+				
+				<div>
+					<div>
+						<h3>Cliente</h3>
+					</div>
+					<label>Nacionalidad</label>
+					<select>
+						<option disabled="disabled" value=""  selected="true">Selecionar</option>
+						<option value="V-">V-</option>
+						<option value="E-">E-</option>
+					</select>
+					<label>Cédula: </label>
+					<input type="text" name="ci-cliente" placeholder="Ingrese la Cédula">
+					<label>Nombre del Cliente: </label>
+					<input type="text" name="nombre-cliente" placeholder="Ingrese el nombre">
+					<label>Apellido del Cliente: </label>
+					<input type="text" name="apellido-cliente" placeholder="Ingrese el apellido">
+					<br/>
+					<label>Dirección: </label>
+					<input type="text" name="dir-cliente" placeholder="Ingrese la Dirección">
+					<label>Tef: </label>
+					<input type="text" name="tlf-cliente" placeholder="Ingrese el Teléfono">
+					<label>Email: </label>
+					<input type="text" name="email-cliente" placeholder="Ingrese el Email">
+					<div>
+						<h3>Detalles</h3>
+					</div>
+					<div>
+						<label>Código del producto: </label>
+						<input type="text" name="codigo-producto" placeholder="Ingrese el codigo del producto">
+						<label>Nombre del producto: </label>
+						<input type="text" name="nombre-producto">
+						<label>Descripción del producto: </label>
+						<input type="text" name="descripcion-producto">
+						<br/>
+						<label>Precio neto: </label>
+						<input type="text" name="precio-producto">
+						<label>Cantidad: </label>
+						<input type="text" name="cantidad-producto" placeholder="Ingrese la cantidad de productos">
+					</div>
+					<div>
+						<button>Agregar producto</button>
+					</div>
+					<div>
+						<h2>Detalles</h2>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<th>Código</th>
+								<th>Nombre</th>
+								<th>Descripción</th>
+								<th>Precio unitario</th>
+								<th>Total</th>
+							</tr>
+							<tr>
+								<td>codigo</td>
+								<td>nombre</td>
+								<td>descrpcion</td>
+								<td>511111881</td>
+								<td>51555</td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+						<tr>
+							<td>Subtotal</td>
+							<td>55151</td>
+						</tr>
+						<tr>
+							<td>Total</td>
+							<td>11455556</td>
+						</tr>
+					</table>
+					</div>
+					
+				</div>
 			</form>
 		</div>
 	</div>
