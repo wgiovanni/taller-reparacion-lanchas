@@ -3,104 +3,241 @@
 <head>
 	<title>Factura</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-	<div>
+	<div class="container">
 		<header><h1>Taller de Reparación / Mantenimiento de Lanchas</h1></header>
 		<h2>Crear Factura</h2>
-		<div>
-			<form>
-				<div>
-					<label>Fecha: </label>
-					<input type="text" name="fecha-cliente" value="12/08/2018">
+		<div class="col-100">
+			<hr/>
+		</div>
+		<form>
+			<div class="row">
+				<div class="col-15">
+					<label>Fecha Emisión: </label>
+				</div>
+				<div class="col-35">
+					<input type="text" name="fecha-cliente" value="12/08/2018" disabled="true">
+				</div>
+				<div class="col-15">
 					<label>Forma de pago</label>
+				</div>
+				<div class="col-35">
 					<select>
 						<option disabled="disabled" value=""  selected="true">Selecionar</option>
 						<option value="debito">Debito</option>
 						<option value="cheque">Cheque</option>
 					</select>
 				</div>
-				
-				<div>
-					<div>
-						<h3>Cliente</h3>
-					</div>
+			</div>
+			
+			<div class="row">
+				<h3>Cliente</h3>
+				<div class="col-100">	
+					<hr/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-15">
 					<label>Nacionalidad</label>
+				</div>
+				<div class="col-35">
 					<select>
 						<option disabled="disabled" value=""  selected="true">Selecionar</option>
-						<option value="V-">V-</option>
-						<option value="E-">E-</option>
+						<option value="V-">V</option>
+						<option value="E-">E</option>
 					</select>
+				</div>
+				<div class="col-15">
 					<label>Cédula: </label>
+				</div>
+				<div class="col-35">
 					<input type="text" name="ci-cliente" placeholder="Ingrese la Cédula">
-					<label>Nombre del Cliente: </label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-15">
+					<label>Nombre: </label>
+				</div>
+				<div class="col-35">
 					<input type="text" name="nombre-cliente" placeholder="Ingrese el nombre">
-					<label>Apellido del Cliente: </label>
+				</div>
+				<div class="col-15">
+					<label>Apellido: </label>
+				</div>
+				<div class="col-35">
 					<input type="text" name="apellido-cliente" placeholder="Ingrese el apellido">
-					<br/>
-					<label>Dirección: </label>
-					<input type="text" name="dir-cliente" placeholder="Ingrese la Dirección">
-					<label>Tef: </label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-15">
+					<label>Teléfono: </label>
+				</div>
+				<div class="col-35">
 					<input type="text" name="tlf-cliente" placeholder="Ingrese el Teléfono">
-					<label>Email: </label>
+				</div>
+				<div class="col-15">
+					<label>E-mail: </label>
+				</div>
+				<div class="col-35">
 					<input type="text" name="email-cliente" placeholder="Ingrese el Email">
-					<div>
-						<h3>Detalles</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-15">
+					<label>Dirección: </label>
+				</div>
+				<div class="col-85">
+					<input type="text" name="dir-cliente" placeholder="Ingrese la Dirección">
+				</div>
+			</div>
+			<div class="row">
+				<h3>Producto</h3>
+				<div class="col-100">	
+					<hr/>
+				</div>
+			</div>
+			<div class="row">
+				<div>
+					<div class="col-15">
+						<label>Código producto: </label>
 					</div>
-					<div>
-						<label>Código del producto: </label>
-						<input type="text" name="codigo-producto" placeholder="Ingrese el codigo del producto">
-						<label>Nombre del producto: </label>
-						<input type="text" name="nombre-producto">
-						<label>Descripción del producto: </label>
-						<input type="text" name="descripcion-producto">
-						<br/>
-						<label>Precio neto: </label>
-						<input type="text" name="precio-producto">
-						<label>Cantidad: </label>
-						<input type="text" name="cantidad-producto" placeholder="Ingrese la cantidad de productos">
+					<div class="col-35">
+						<input type="text" name="codigo-producto" placeholder="Ingrese el código del producto">
 					</div>
-					<div>
-						<button>Agregar producto</button>
-					</div>
-					<div>
-						<h2>Detalles</h2>
-					</div>
-					<div>
+				</div>
+				<div class="col-15">
+					<label>Nombre producto: </label>
+				</div>
+				<div class="col-35">
+					<input type="text" name="nombre-producto" disabled="true">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-15">
+					<label>Descripción: </label>
+				</div>
+				<div class="col-85">
+					<input type="text" name="descripcion-producto" disabled="true">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-15">
+					<label>Precio: </label>
+				</div>
+				<div class="col-35">
+					<input type="text" name="precio-producto" disabled="true">
+				</div>
+				<div class="col-15">
+					<label>Cantidad: </label>
+				</div>
+				<div class="col-35">
+					<input type="text" name="cantidad-producto" placeholder="Ingrese la cantidad de productos">						
+				</div>
+			</div>
+			<div class="row">
+				<button class="button">Agregar</button>
+				<button class="button button-danger">Limpiar</button>
+			</div>
+			<div class="row">
+				<h2>Detalles</h2>
+				<div class="col-100">
+					<hr/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-100">
+					<div class="table">
 						<table>
 							<tr>
+								<th>#</th>
 								<th>Código</th>
 								<th>Nombre</th>
 								<th>Descripción</th>
-								<th>Precio unitario</th>
+								<th>P. Unitario</th>
+								<th>Cantidad</th>
+								<th>Descuentos</th>
 								<th>Total</th>
+								<th></th>
 							</tr>
 							<tr>
-								<td>codigo</td>
-								<td>nombre</td>
-								<td>descrpcion</td>
+								<td>1</td>
+								<td>Producto 131</td>
+								<td>Producto 1</td>
+								<td>Desc. producto 1</td>
 								<td>511111881</td>
+								<td>3</td>
+								<td></td>
 								<td>51555</td>
+								<td><button class="button button-danger" href="#">Eliminar</button></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Producto 2</td>
+								<td>Producto 2</td>
+								<td>Desc. producto 2</td>
+								<td>87811881</td>
+								<td>4</td>
+								<td></td>
+								<td>87874555</td>
+								<td><button class="button button-danger" href="#">Eliminar</button></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Producto 3</td>
+								<td>Producto 3</td>
+								<td>Desc. producto 3</td>
+								<td>99811881</td>
+								<td>1</td>
+								<td></td>
+								<td>4353455</td>
+								<td><button class="button button-danger" href="#">Eliminar</button></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>Sub-total</strong></td>
+								<td>124412362634</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>Impuestos</strong></td>
+								<td>1200</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>Total</strong></td>
+								<td>12009589845756</td>
+								<td></td>
 							</tr>
 						</table>
 					</div>
-					<div>
-						<table>
-						<tr>
-							<td>Subtotal</td>
-							<td>55151</td>
-						</tr>
-						<tr>
-							<td>Total</td>
-							<td>11455556</td>
-						</tr>
-					</table>
-					</div>
-					
 				</div>
-			</form>
-		</div>
+			</div>
+			<div class="row">
+				<input type="submit" class="button" value="Guardar">
+				<button class="button button-danger">Cancelar</button>
+			</div>
+		</form>
 	</div>
-
 </body>
 </html>
