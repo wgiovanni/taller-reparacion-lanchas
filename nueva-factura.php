@@ -1,19 +1,28 @@
+<?php
+require_once('models/WayToPay.php');
+require_once('models/Product.php');
+echo "Entro";
+
+$wayToPay = new WayToPay();
+$wayToPay = $wayToPay->getAll(); //aqui ya se obtienen todas las formas de pago disponibles
+//print_r($wayToPay);
+//echo '<br>';
+$products = new Product();
+$products = $products->getAll();
+print_r($products);
+$arrayCodeProduct = array();
+foreach($products as $product):
+array_push($arrayCodeProduct, $product->codigo);
+endforeach
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Factura</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<?php include('head.php');?>	
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<header><h1>Taller de Reparación / Mantenimiento de Lanchas</h1></header>
-			<div class="col-100">
-				<hr/>
-			</div>
-		</div>
+	<?php include('principal.php');?>
 		<div class="row">
 			<h2>Crear Factura</h2>
 		</div>
@@ -31,8 +40,12 @@
 				<div class="col-35">
 					<select>
 						<option disabled="disabled" value=""  selected="true">Selecionar</option>
-						<option value="debito">Debito</option>
-						<option value="cheque">Cheque</option>
+						<?php
+							foreach ($wayToPay as $item):
+							print_r($item);	
+							?>
+								<option value="<?php echo $item->id; ?>"><?php echo $item->nombre; ?></option>
+						<?php endforeach; ?>
 					</select>
 				</div>
 			</div>
@@ -51,8 +64,8 @@
 				<div class="col-35">
 					<select>
 						<option disabled="disabled" value=""  selected="true">Selecionar</option>
-						<option value="V-">V</option>
-						<option value="E-">E</option>
+						<option value="V">V</option>
+						<option value="E">E</option>
 					</select>
 				</div>
 				<div class="col-15">
@@ -110,14 +123,14 @@
 						<label>Código producto: </label>
 					</div>
 					<div class="col-35">
-						<input type="text" name="codigo-producto" placeholder="Ingrese el código del producto">
+						<input type="text" name="codigo-producto" id="codigo-producto" placeholder="Ingrese el código del producto">
 					</div>
 				</div>
 				<div class="col-15">
 					<label>Nombre producto: </label>
 				</div>
 				<div class="col-35">
-					<input type="text" name="nombre-producto" disabled="true">
+					<input type="text" name="nombre-producto" id="nombre-producto" disabled="true">
 				</div>
 			</div>
 			<div class="row">
@@ -125,7 +138,7 @@
 					<label>Descripción: </label>
 				</div>
 				<div class="col-85">
-					<input type="text" name="descripcion-producto" disabled="true">
+					<input type="text" name="descripcion-producto" id="descripcion-producto" disabled="true">
 				</div>
 			</div>
 			<div class="row">
@@ -133,7 +146,7 @@
 					<label>Precio: </label>
 				</div>
 				<div class="col-35">
-					<input type="text" name="precio-producto" disabled="true">
+					<input type="text" name="precio-producto" id="precio-producto" disabled="true">
 				</div>
 				<div class="col-15">
 					<label>Cantidad: </label>
@@ -242,6 +255,36 @@
 				<button class="button button-danger">Cancelar</button>
 			</div>
 		</form>
-	</div>
+	<?php include('footer.php');?>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+		<script>
+		$(document).ready(function() {
+		    $('#codigo-producto').on('keyup', function() {
+		        var key = $(this).val();
+		        console.log(key);		
+		        /*var dataString = 'key='+key;
+				$.ajax({
+		            type: "POST",
+		            url: "ajax.php",
+		            data: dataString,
+		            success: function(data) {
+		                //Escribimos las sugerencias que nos manda la consulta
+		                $('#suggestions').fadeIn(1000).html(data);
+		                //Al hacer click en alguna de las sugerencias
+		                $('.suggest-element').on('click', function(){
+		                        //Obtenemos la id unica de la sugerencia pulsada
+		                        var id = $(this).attr('id');
+		                        //Editamos el valor del input con data de la sugerencia pulsada
+		                        $('#key').val($('#'+id).attr('data'));
+		                        //Hacemos desaparecer el resto de sugerencias
+		                        $('#suggestions').fadeOut(1000);
+		                        alert('Has seleccionado el '+id+' '+$('#'+id).attr('data'));
+		                        return false;
+		                });
+		            }
+		        });*/
+		    });
+		}); 
+		</script>
 </body>
 </html>
